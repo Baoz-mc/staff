@@ -85,7 +85,7 @@ const localData = {
     }
   },
   karis: {
-    // Assuming username is Karis for Crafatar
+
     uuid: "29d88c40-13c8-4fae-8e7d-40af3488e9bb",
     name: "Karis",
     role: "Developer",
