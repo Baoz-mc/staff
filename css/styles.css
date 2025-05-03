@@ -1,0 +1,587 @@
+:root {
+  --bg-gradient-start: #1a2a6c;
+  --bg-gradient-mid: #2a0845;
+  --bg-gradient-end: #0f0c29;
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --accent-glow: #00e5ff;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --card-shadow: rgba(0, 229, 255, 0.2);
+  --header-bg: rgba(0, 0, 0, 0.3);
+  --footer-bg: rgba(0, 0, 0, 0.2);
+  --font-primary: 'Poppins', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-mid), var(--bg-gradient-end));
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
+
+canvas#stars-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+header {
+  background: var(--header-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--card-border);
+}
+
+header h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
+nav a {
+  color: var(--text-secondary);
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--accent-glow);
+  text-shadow: 0 0 8px var(--accent-glow);
+}
+
+main {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 1.5rem;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 30px var(--card-shadow);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.card img {
+  display: block;
+  margin: 0 auto 1rem auto; /* canh giữa ngang */
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-glow);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+
+.card h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #fff;
+}
+
+.card .role {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--accent-glow);
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card p:not(.role) {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+footer {
+  background: var(--footer-bg);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  margin-top: 3rem;
+  border-top: 1px solid var(--card-border);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+footer img {
+    opacity: 0.6;
+    margin-bottom: 0.5rem;
+    filter: grayscale(50%) brightness(1.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  nav a {
+    margin: 0 0.5rem;
+  }
+  .team-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+  }
+  main {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 1rem;
+  }
+  header h1 {
+    font-size: 1.8rem;
+  }
+  nav {
+    margin-top: 0.5rem;
+  }
+  nav a {
+    display: block;
+    margin: 0.3rem 0;
+  }
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* Timeline Styles for Announcements Page */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--card-border);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+  width: 50%;
+}
+
+/* Alternate sides */
+.timeline-item:nth-child(odd) {
+  left: 0;
+  padding-right: 2rem; /* Space from center line */
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+  padding-left: 2rem; /* Space from center line */
+}
+
+/* Dot on the timeline */
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: var(--accent-glow);
+  border: 3px solid var(--bg-gradient-mid);
+  top: 10px; /* Adjust vertical alignment */
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-item:nth-child(odd)::after {
+  right: -0.5px; /* Position dot on the line */
+  transform: translateX(50%);
+}
+
+.timeline-item:nth-child(even)::after {
+  left: -0.2px; /* Position dot on the line */
+  transform: translateX(-50%);
+}
+
+.timeline-content {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.timeline-content h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.timeline-content .timestamp {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.8rem;
+}
+
+.timeline-content p {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+/* Responsive Timeline */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 20px; /* Move line to the left */
+    transform: translateX(0);
+  }
+  .timeline-item {
+    width: 100%;
+    left: 0 !important; /* Reset left positioning */
+    padding-left: 45px; /* Space from the left line */
+    padding-right: 0;
+    text-align: left !important; /* Align all text left */
+    margin-bottom: 1.5rem;
+  }
+  .timeline-item::after {
+    left: 12px !important; /* Position dot on the left line */
+    transform: translateX(0);
+  }
+}
+
+.content-section {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 8px 30px var(--card-shadow);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.content-section h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 0 8px var(--accent-glow);
+}
+
+
+
+/* Project Timeline Styles */
+.project-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem 0;
+}
+
+/* Similar line as announcement timeline */
+.project-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--card-border);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.project-item {
+  position: relative;
+  margin-bottom: 2rem;
+  width: 50%;
+}
+
+/* Alternate sides */
+.project-item:nth-child(odd) {
+  left: -1.2%;
+  padding-right: 2rem;
+}
+
+.project-item:nth-child(even) {
+  left: 51.2%;
+  padding-left: 2rem;
+}
+
+/* Dot on the timeline */
+.project-item::after {
+  content: '';
+  position: absolute;
+  width: 18px; /* Slightly larger dot for projects */
+  height: 18px;
+  background: var(--accent-glow);
+  border: 4px solid var(--bg-gradient-mid);
+  top: 15px; /* Adjust vertical alignment */
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.project-item:nth-child(odd)::after {
+  right: -9px;
+  transform: translateX(50%);
+}
+
+.project-item:nth-child(even)::after {
+  left: -9px;
+  transform: translateX(-50%);
+}
+
+.project-content {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-content:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px var(--card-shadow);
+}
+
+.project-content h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.project-status {
+  display: inline-block;
+  padding: 0.3em 0.7em;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.project-status.ongoing {
+  background-color: rgba(255, 165, 0, 0.2); /* Orange */
+  color: #ffa500;
+  border: 1px solid rgba(255, 165, 0, 0.5);
+}
+
+.project-status.completed {
+  background-color: rgba(0, 229, 255, 0.2); /* Accent Glow */
+  color: var(--accent-glow);
+  border: 1px solid rgba(0, 229, 255, 0.5);
+}
+
+.project-status.planned {
+  background-color: rgba(180, 180, 180, 0.2); /* Gray */
+  color: var(--text-secondary);
+  border: 1px solid rgba(180, 180, 180, 0.5);
+}
+
+.project-time {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.8rem;
+}
+
+.project-content p {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-tags span {
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--text-secondary);
+  padding: 0.3em 0.6em;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+/* Responsive Project Timeline */
+@media (max-width: 768px) {
+  .project-timeline::before {
+    left: 20px;
+    transform: translateX(0);
+  }
+  .project-item {
+    width: 100%;
+    left: 0 !important;
+    padding-left: 45px;
+    padding-right: 0;
+    text-align: left !important;
+    margin-bottom: 1.5rem;
+  }
+  .project-item::after {
+    left: 11px !important; /* Adjust for larger dot */
+    transform: translateX(0);
+  }
+}
+
+
+
+/* Updated Index Card Styles */
+.card .face-avatar {
+  width: 80px; /* Slightly smaller for face */
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid var(--accent-glow);
+  box-shadow: 0 0 15px var(--accent-glow);
+  object-fit: contain; /* Ensure head render fits */
+  background: rgba(0,0,0,0.2); /* Slight background for avatar */
+}
+
+.card .quote-index {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  min-height: 2.7em; /* Reserve space for quote */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit quote to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card .achievements-list-index {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  min-height: 1.2em; /* Reserve space */
+}
+
+.card .achievements-list-index li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4em;
+}
+
+.card .achievements-list-index i {
+    color: var(--accent-glow);
+    font-size: 0.8em;
+}
+
+.card .socials-index {
+    margin-top: auto; /* Push socials to bottom if card height varies */
+    padding-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+}
+
+.card .socials-index a,
+.card .socials-index span {
+    color: var(--text-secondary);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.card .socials-index a:hover {
+    color: var(--accent-glow);
+    transform: scale(1.1);
+}
+
+/* Ensure card content aligns well */
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Discord Button Style */
+.discord-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background-color: #5865F2; /* Discord Blue */
+    color: #fff;
+    padding: 0.8em 1.5em;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 1rem;
+}
+
+.discord-button:hover {
+    background-color: #4752C4;
+    transform: translateY(-2px);
+    color: #fff; /* Override link hover */
+    text-shadow: none;
+}
+
+.discord-button i {
+    font-size: 1.2em;
+}
