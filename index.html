@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đội ngũ của chúng tôi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="stars.js"></script>
+  <script>
+    function goToDetail(id) {
+      window.location.href = `detail.html?id=${id}`;
+    }
+  </script>
+</head>
+<body class="aqua-theme">
+  <canvas id="stars-canvas"></canvas>
+
+  <header>
+    <h1>Đội ngũ của chúng tôi</h1>
+    <nav>
+      <a href="project.html">Dự án</a>
+      <a href="notification.html">Thông báo</a>
+      <a href="contact.html">Liên hệ</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="team-grid">
+      <div class="card" onclick="goToDetail('keepmeside')">
+        <img src="https://crafatar.com/avatars/0a3cbed38d9347a3b5f56b7900c76fe0?size=100" alt="Keepmeside">
+        <h2>Keepmeside</h2>
+        <p class="role">Founder</p>
+        <p>"Luôn tỉnh táo, trừ lúc ngủ!"</p>
+      </div>
+      <div class="card" onclick="goToDetail('salmon')">
+        <img src="https://crafatar.com/avatars/a3e8b6c1970c4a099a503fa74f1f1496?size=100" alt="Salmon">
+        <h2>Salmon</h2>
+        <p class="role">Founder</p>
+        <p>"Thích cá hồi, ghét lag."</p>
+      </div>
+      <!-- Thêm các thành viên khác tương tự -->
+    </section>
+  </main>
+
+  <footer>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Minecraft_logo.png" width="100" alt="Logo">
+    <p>&copy; 2020 - Creative Minecraft Studio</p>
+  </footer>
+</body>
+</html>

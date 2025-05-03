@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chi tiết thành viên</title>
+  <link rel="stylesheet" href="detail.css" />
+</head>
+<body class="aqua-theme">
+  <header>
+    <h1>Chi tiết thành viên</h1>
+  </header>
+
+  <main class="profile-container">
+    <div class="skin-box pixel-shadow">
+      <canvas id="skin-canvas" width="300" height="400"></canvas>
+    </div>
+
+    <div class="info-box">
+      <h2 id="name">Tên thành viên</h2>
+      <span class="badge" id="role-badge">Vai trò</span>
+      <p class="quote" id="quote">"..."</p>
+
+      <div class="achievements-box">
+        <h3>Thành tựu</h3>
+        <ul id="achievements"></ul>
+      </div>
+
+      <div class="social-links" id="social"></div>
+    </div>
+  </main>
+
+  <!-- Đặt 2 script ở cuối body theo đúng thứ tự -->
+  <script src="https://cdn.jsdelivr.net/npm/skinview3d@1.16.0/dist/skinview3d.min.js"></script>
+  <script src="detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+body.aqua-theme {
+    background: radial-gradient(ellipse at top, #2b5876, #4e4376);
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+  }
+
+  header {
+    background-color: #004d4d;
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+    box-shadow: 0 0 15px #00ffff;
+  }
+
+  .profile-container {
+    max-width: 960px;
+    margin: 30px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px #00e5ff;
+  }
+
+  .skin-box {
+    flex: 1 1 300px;
+    text-align: center;
+    animation: pixel-bounce 2s infinite ease-in-out;
+  }
+
+  @keyframes pixel-bounce {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-4px); }
+  }
+
+  canvas {
+    width: 100%;
+    max-width: 300px;
+    height: 400px;
+    border-radius: 8px;
+    background: #000;
+  }
+
+  .info-box {
+    flex: 1 1 300px;
+  }
+
+  h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+
+  .badge {
+    display: inline-block;
+    background: #00e5ff;
+    color: #000;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  .quote {
+    font-style: italic;
+    margin-bottom: 20px;
+    color: #ccc;
+  }
+
+  .achievements-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 5px solid #00e5ff;
+    margin-bottom: 20px;
+  }
+
+  .achievements-box ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .social-links p, .social-links a {
+    font-size: 14px;
+    color: #aefeff;
+    margin: 5px 0;
+  }

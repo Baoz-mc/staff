@@ -1,0 +1,49 @@
+body.aqua-theme {
+    background: radial-gradient(ellipse at top, #2b5876 0%, #4e4376 100%);
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  canvas#stars-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  header {
+    background: #00796b;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 15px #00e5ff;
+  }
+
+  nav a {
+    color: #b2fefe;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 40px;
+  }
+
+  .card {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid #00e5ff;
+    padding: 20px;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+  }
+  .card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 20px #00e5ff;
+  }
