@@ -131,7 +131,7 @@ const localData = {
   },
   vochidanh: {
     uuid: "619e7f345fa74b66b33961454e7a2c58",
-    name: "VochiDanh",
+    name: "VoChiDanh",
     role: "Coder",
     quote: "Yêu IT bằng cả tính mạng",
     achievements: [
