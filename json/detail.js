@@ -83,7 +83,6 @@ const localData = {
     },
   },
   karis: {
-    // Assuming username is Karis for Crafatar
     uuid: "29d88c40-13c8-4fae-8e7d-40af3488e9bb",
     name: "Karis",
     role: "Developer",
@@ -116,11 +115,11 @@ const localData = {
     quote: "Nửa chữ java bẻ đôi cũng không biết",
     achievements: [
       "ㅤDeveloper Stella Studio",
-      "ㅤOwner SimpMC",
+      "ㅤFounder SimpMC",
       "ㅤCựu Admin Mineahihi",
       "ㅤCựu Admin LangBatOn",
       "ㅤKhách hàng: VinaMc, IndraMc, DPTMC, SoulMc, Zone Of Wonders, Swordland",
-      "ㅤAuthor Plugins: GameProfileSelector, ChuyenXu, TuCheTao, SimpPay",
+      "ㅤAuthor Plugins: SimpPay, TuCheTao",
     ],
     socials: {
       discord: "typical.smc",
@@ -129,7 +128,7 @@ const localData = {
   },
   vochidanh: {
     uuid: "619e7f345fa74b66b33961454e7a2c58",
-    name: "VochiDanh",
+    name: "VoChiDanh",
     role: "Coder",
     quote: "Yêu IT bằng cả tính mạng",
     achievements: [
